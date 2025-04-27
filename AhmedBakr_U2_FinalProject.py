@@ -1,24 +1,31 @@
-print("Welcome to Water usage tracker!")
+questions = ["How many times did you flush the toilet today? ",
+             "How many times did you shower today? ",
+             "How many times did you wash your hands today? ",
+             "How many times did you use the laundry machine today? "]
+average_water_use = [6, 40, 3, 65]
+water_usage = []
+
+print("Welcome to Water usage tracker!") #output
 print("Make sure to put all of the answers in numbers!")
 
-water_usage = [7, 75, ]
-questions = ["How many times did you flush the toilet today: ", "How many times did you shower today: ",
-             "How many times did you brush your teeth today: ", "How many times did you wash your car today:",
-             "How many times did you use the laundry machine today:", ]
-
 continue_tracking = True  # this is a boolena
-while continue_tracking:
-    user = input(questions[0])  # this is a string input
-    liters = int(user)
-    water_usage.append(liters)  # this stores all in list
+for i in range(0, 4):
+    print(questions[i])
+    times = int(input("Enter number of times (or type 'done' to finish):"))# input
+    water_usage.append(times)
 
-    print("You used", liters, "liters today!")  # output
+# calculations
+sum_usage = 0
+sum_usage = sum_usage + water_usage
+print("Your total water_usage is", sum_usage, "liters.")
 
-    if liters < 100:
-        print("Fantastic job! You are saving water!")
-    elif liters > 300:
-        print("You are now in the wasting water phase. Please follow the advice below to save water!")
-        print("You should go to the toilet when____")
-        print("You should brush your teeth only____")
-        print("You should be showering only_________")
-        print("Fix any leaky faucet or some sort to save more water.")
+if sum_usage > 300:
+    print("Warning: You are wasting a lot of water!")
+    print("Please follow the advice below to save water!")
+    print("Use the laundry machine when you have a full load to limit on usage.")
+    print("You should be showering less than 10 minutes.")
+    print("Fix any leaky faucet or some sort to save more water.")
+elif sum_usage > 150:
+    print("You are using moderate amount of water, but you can improve.")
+else:
+    print( "Good job! You are saving a lot of water. Keep it up!")
