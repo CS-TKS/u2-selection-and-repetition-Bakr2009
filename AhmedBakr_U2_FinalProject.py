@@ -11,13 +11,17 @@ print("Make sure to put all of the answers in numbers!")
 continue_tracking = True  # this is a boolena
 for i in range(0, 4):
     print(questions[i])
-    times = int(input("Enter number of times (or type 'done' to finish):"))# input
-    water_usage.append(times)
+    answer = input("Enter number of times (or type 'done' to finish):")# input
 
+if answer.lower() == "done":
+    continue_tracking = False
+else:
+    times = int(answer)
+    water_usage.append(times)
 # calculations
 sum_usage = 0
-sum_usage = sum_usage + water_usage
-print("Your total water_usage is", sum_usage, "liters.")
+sum_usage = sum(water_usage)
+print("Your total", water_usage, "is", sum_usage, "liters.")
 
 if sum_usage > 300:
     print("Warning: You are wasting a lot of water!")
